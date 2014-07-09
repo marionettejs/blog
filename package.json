@@ -1,0 +1,17 @@
+{
+  "name": "Marionette-Blog",
+  "scripts": {
+    "postinstall": "hexo generate"
+  },
+  "version": "2.7.1",
+  "private": true,
+  "dependencies": {
+    "connect": "2.x",
+    "hexo": "^2.7.1",
+    "hexo-generator-feed": "^0.1.2",
+    "hexo-livereload": "^0.1.0",
+    "hexo-renderer-ejs": "*",
+    "hexo-renderer-marked": "*",
+    "hexo-renderer-stylus": "*"
+  }
+}
