@@ -10,7 +10,7 @@
 ##### 3. To create a new post in markdown: `hexo new draft <filename>`
 ##### 4. Edit the file with your file name in this directory: [\_drafts](https://github.com/marionettejs/blog/tree/master/source/_drafts)
 ##### 5. Edit your title at top of the file
-##### 5. Add a category at the top of the file so that it can be filtered, choose from:
+##### 6. Add a category at the top of the file so that it can be filtered, choose from:
 * `tags: news`
 * `tags: releases`
 * `tags: tutorials (beginner)`
@@ -19,12 +19,20 @@
 * `tags: meeting notes`
 * `tags: behind the scenes`
 
+##### To add multiple tags:
+    
+    tags:
+    - news
+    - releases
+
+
 *Note: Make sure you add a space after the colon*
-##### 6. To edit a post that has been **published**, edit the file in this directory: [\_posts](https://github.com/marionettejs/blog/tree/master/source/_posts)
-##### 7. Turn on the server: `hexo s` (if port 5000 is being used already, try `hexo s -p 4000`)
-##### 8. Preview your post at: [localhost:5000](http://localhost:5000)
-##### 9. Once you're satisfied with your changes, send a pull request
-##### 10. To publish a post (moves a post from [\_drafts](https://github.com/marionettejs/blog/tree/master/source/_drafts) to [\_posts](https://github.com/marionettejs/blog/tree/master/source/_posts) directory): `hexo p <filename>`
+
+##### 7. To edit a post that has been **published**, edit the file in this directory: [\_posts](https://github.com/marionettejs/blog/tree/master/source/_posts)
+##### 8. Turn on the server: `hexo s` (if port 5000 is being used already, try `hexo s -p 4000`)
+##### 9. Preview your post at: [localhost:5000](http://localhost:5000)
+##### 10. Once you're satisfied with your changes, send a pull request
+##### 11. To publish a post (moves a post from [\_drafts](https://github.com/marionettejs/blog/tree/master/source/_drafts) to [\_posts](https://github.com/marionettejs/blog/tree/master/source/_posts) directory): `hexo p <filename>`
 
 
 ### Adding Images
