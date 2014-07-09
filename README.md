@@ -16,4 +16,4 @@
 
 
 ***************************
-###### Got questions? Contact @jdaudier at [![Gitter chat](https://badges.gitter.im/marionettejs.png)](https://gitter.im/marionettejs)
+###### Got questions? Contact @jdaudier at [![Gitter chat](https://badges.gitter.im/marionettejs/backbone.marionette.png)](https://gitter.im/marionettejs/backbone.marionette)
