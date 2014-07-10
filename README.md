@@ -24,13 +24,13 @@
 * `tags: meeting notes`
 * `tags: behind the scenes`
 
+*Note: Make sure you add a space after the colon*
+
 ##### To add multiple tags:
     
     tags:
     - news
     - releases
-
-*Note: Make sure you add a space after the colon*
 
 ##### 7. Add your name as the last tag (after the word `by`):
     tags:
