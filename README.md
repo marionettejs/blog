@@ -32,10 +32,14 @@
 
 *Note: Make sure you add a space after the colon*
 
-##### 7. Add your name as the last tag:
+##### 7. Add your name as the last tag (after the word `by`):
     tags:
     - news
     - by Uncle Bob
+    
+
+*Note: Make sure you write your name the same way for all posts so it filters correctly (so no Uncle Bob one week and Uncle Bobby the next)*
+
 
 ##### 8. To edit a post that has been **published**, edit the file in this directory: [\_posts](https://github.com/marionettejs/blog/tree/master/source/_posts)
 
