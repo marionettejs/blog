@@ -2,6 +2,7 @@ title: 'Introducing Backbone.Radio'
 tags:
 - news
 - by Jmeas
+date: 2014-07-11 11:46:03
 ---
 
 Marionette comes bundled with a library called [Backbone.Wreqr](https://github.com/marionettejs/backbone.wreqr), and in the coming months we will replace it with a new library by the name of [Backbone.Radio](https://github.com/jmeas/backbone.radio). Radio is heavily inspired by Wreqr, but it was rewritten from the ground up.
