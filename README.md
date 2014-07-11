@@ -4,7 +4,7 @@
 ### This blog is built using [Hexo](http://hexo.io).
 
 ### Topic suggestions
-Please create a GitHub issue for topic ideas that you would like us to write about
+Please create a new [GitHub issue](https://github.com/marionettejs/blog/issues/new) for topic ideas that you would like us to write about
 
 ### Steps to get it running:
 
