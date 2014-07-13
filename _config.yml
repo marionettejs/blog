@@ -12,7 +12,7 @@ language: en
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://marionette.brace.io
+url: http://marionettejs.github.io
 root: /
 permalink: :year/:month/:day/:title/
 tag_dir: tags
@@ -28,7 +28,7 @@ public_dir: public
 new_post_name: :title.md # File name of new posts
 default_layout: post
 auto_spacing: false # Add spaces between asian characters and western characters
-titlecase: true # Transform title into titlecase
+titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 max_open_file: 100
 multi_thread: true
