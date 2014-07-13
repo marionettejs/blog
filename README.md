@@ -73,7 +73,7 @@ There's a matching folder with the same name as your post. Save you image(s) in 
 
 ##### More info on formatting: [http://hexo.io/docs/tag-plugins.html](http://hexo.io/docs/tag-plugins.html)
 
-##### Disqus Syntax Highlighting
+### Disqus Syntax Highlighting
 If you're responding to a comment on Disqus and want syntax highlighting, place your code inside `<pre><code>` tags. For example:
 
     <pre><code>
@@ -81,8 +81,9 @@ If you're responding to a comment on Disqus and want syntax highlighting, place 
     alert('foo');
     </code></pre>
 
-##### Reminder
+### Reminder
 Add this to the generated index.html `<head>` until Hexo adds this feature:
+
 `<link rel="icon" href="favicon.ico" />`
 
 *Happy blogging!*
