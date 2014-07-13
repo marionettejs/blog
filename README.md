@@ -81,10 +81,7 @@ If you're responding to a comment on Disqus and want syntax highlighting, place 
     alert('foo');
     </code></pre>
 
-### Reminder
-Add this to the generated index.html `<head>` until Hexo adds this feature:
 
-`<link rel="icon" href="favicon.ico" />`
 
 *Happy blogging!*
 
