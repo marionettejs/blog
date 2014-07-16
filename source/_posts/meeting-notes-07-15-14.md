@@ -1,5 +1,6 @@
 title: Meeting Notes (7.15.14)
 tags: notes
+date: 2014-07-16 00:19:33
 ---
 
 The Marionette team meets privately every Tuesday at 5:30PM EST to discuss all things Marionette related.
