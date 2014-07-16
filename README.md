@@ -20,11 +20,11 @@ Please create a new [GitHub issue](https://github.com/marionettejs/blog/issues/n
 
 ##### 6. Add a tag at the top of the file so that it can be filtered, choose from:
 * `tags: news`
+* `tags: notes`
 * `tags: releases`
 * `tags: tutorials (beginner)`
 * `tags: tutorials (intermediate)`
 * `tags: tutorials (advanced)`
-* `tags: meeting notes`
 * `tags: behind the scenes`
 
 *Note: Make sure you add a space after the colon*
@@ -52,7 +52,15 @@ Please create a new [GitHub issue](https://github.com/marionettejs/blog/issues/n
 
 ##### 11. Once you're satisfied with your changes, send a pull request
 
+----
+
+### Steps to go live:
+
 ##### 12. To publish a post (moves a post from [\_drafts](https://github.com/marionettejs/blog/tree/master/source/_drafts) to [\_posts](https://github.com/marionettejs/blog/tree/master/source/_posts) directory): `hexo p <filename>`
+
+##### 13. To generate static files: `hexo generate`
+
+##### 14. Take the generated files from the `public` folder and push them to this [repo](https://github.com/marionettejs/marionettejs.github.io) which hosts the blog
 
 ### Adding Images
 There's a matching folder with the same name as your post. Save you image(s) in that folder.
