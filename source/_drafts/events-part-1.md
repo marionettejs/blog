@@ -3,15 +3,15 @@ tags:
   - by Jmeas
 ---
 
-Recently, Maciej Kucharski wrote a [blog entry](http://naturaily.com/blog/post/marionette-plain-object-over-reqres-commands-above-all) in which he expresses his preference for using plain Objects over the event-based architecture that Backbone.Wreqr provides. There's nothing wrong with this opinion, and I don't believe that event-based architecture is for everyone. In fact, I'm certain that there are plenty of really well-written Marionette applications that don't use events at all. The thoughtfulness of Maciej's post suggests to me that he, too, is likely the author of such applications.
+Recently, Maciej Kucharski wrote a [blog entry](http://naturaily.com/blog/post/marionette-plain-object-over-reqres-commands-above-all) in which he expresses his preference for using plain Objects over the event-based architecture that Backbone.Wreqr provides. There's nothing wrong with this opinion, and I don't believe that event-based architecture is for everyone. In fact, I'm certain that there are plenty of really well-written Marionette applications that don't rely on the event buses that Wreqr provides at all. The thoughtfulness of Maciej's post suggests to me that he, too, is likely the author of such applications.
 
-This post isn't meant to argue that Wreqr is required in all Marionette apps. Rather, it's meant to serve two points. First, it's intended to be a response to his arguments that I feel are either unsound, or otherwise present issues that are solvable. Secondly, it will try to provide good reasons in favor of choosing event-based architecture. These will be split up into two blog posts, one for each topic.
+This post isn't meant to argue that Wreqr is a requirement for all Marionette apps. Rather, it's meant to accomplish two goals. First, it's intended to be a response to his arguments that I feel are either unsound, or that otherwise present issues that are solvable. Secondly, it will try to provide good reasons in favor of choosing event-based architecture. These will be split up into two blog posts, one for each topic.
 
 (note: these headers are paraphrases from Maciej's original post)
 
 ## "Wreqr has no way of scoping requests or creating hierarchy"
 
-One argument I've been told is that Wreqr doesn't provide a way to scope the events in a robust way. These folks tend to only be using the instances of these Classes that are attached to the Application. I'll refer to this as using the 'global message bus.' The global message bus is a common pattern that I see in Marionette applications. The typical way that one introduces namespacing is using period- or colon-separated strings.
+One argument I've been told is that Wreqr doesn't provide a way to scope the events in a robust way. These folks tend to only be using the instances of these Classes that are attached to the Application. I'll refer to this as using the 'global message bus.' The global message bus is a common pattern that I see in Marionette applications, no doubt because of the fact that the Application object itself comes with a bus on it out-of-the-box. The typical way that one introduces namespacing on the global message bus is using period- or colon-separated strings.
 
 ```js
 // Namespace this as a notifications event
@@ -25,7 +25,7 @@ As Marciej correctly points out in his post, this system involves fragile naming
 
 Debuggable or not, I've also heard that people feel that it just doesn't look nice when you have deeply namespaced strings – and I completely agree. I'd prefer to keep my namespacing outside of my event name as much as possible.
 
-Because of these concerns, we implemented a new feature into Wreqr called Channels, which been a part of Marionette as of version 1.8.4. Channels are best thought of as an explicit way to namespace your code. You access a Channel through the aptly named `channel` method on `Wreqr.radio`. Let's look at an example to see how it works.
+Because of these concerns we implemented a new feature into Wreqr called Channels, which been a part of Marionette as of version 1.8.4. Channels are best thought of as an explicit way to namespace your code. You access a Channel through the aptly named `channel` method on `Wreqr.radio`. Let's look at an example to see how it works.
 
 ```js
 var Wreqr = require('backbone.wreqr');
@@ -76,13 +76,13 @@ I prefer this because any Object is allowed to access Wreqr. Wreqr isn't the par
 2. Pass the Channel down to children objects.
 3. Create a separate module just for the Channel and require it in that way.
 
-I've used all of these in the past, but I've moved away from the third option in lieu of simply using the first option. In a later post I'll describe when and why I make the distinction between using the first and second methods.
+I've used all of these in the past, but I've moved away from the third option in lieu of simply using the first option. In a later blog post I'll describe when and why I make the distinction between using the first and second methods.
 
 Although this particular problem is solvable, the other two aren't as easily solved.
 
 The second problem I have is one I've mentioned before: it just doesn't read like very nice code when the namespacing becomes deeply nested. This anxiety is no doubt linked with the final problem I have with this pattern, which is that it's actually *more* error-prone than if you use Channels. You will quickly find yourself with long event prefixes and suffixes when you've only got one Channel, which can lead to some convoluted event names. There's no arguing that the more strings you're writing the more likely it is that you'll make a typo. Keeping strings that are used as identifiers short and sweet is very useful when writing evented architecture.
 
-I'd like to pause to fully appreciate that last sentence. For those who choose not to write evented architecture I can understand how such a statement must sound exceptionally silly. If the problem is with strings, then surely the solution must be to get rid of strings altogether, and not just make them shorter! As Maciej pointed out, making a typo when calling a method on a normal Javascript Object yields an Error message, so why deal with the string problem at all? We will come back to this issue when we discuss debugging, which is coming up really soon. I promise!
+For those who choose not to write evented architecture I can understand how that last statement must sound exceptionally silly. If the problem is with strings, then surely the solution must be to get rid of strings altogether and not just make them shorter! As Maciej pointed out, making a typo when calling a method on a normal Javascript Object yields an Error message, so why deal with the string problem at all? We will come back to this issue when we discuss debugging, which is coming up really soon. I promise!
 
 ## "The Wreqr syntax is unwieldy and convoluted"
 
@@ -94,7 +94,7 @@ It's my opinion that Radio successfully solves the problem of the downright ugly
 
 The problem with this argument is that it assumes that publish-subscribe is the *only* type of event pattern out there. The Wreqr API looks like you're working with events because, well, you are. And this is true whether you're using the EventAggregator, Commands, or RequestResponse.
 
-There's no denying that pub-sub is the most popular message pattern – especially in Javascript – but commands and request-response are also event patterns. They're used in many other contexts, too. In fact, as web-developers we use request-response all the time, given the fact that HTTP is an implementation of request-response. Let's take a look.
+There's no denying that pub-sub is the most popular message pattern – especially in Javascript – but commands and request-response are also event patterns. They're used in many other contexts, too. In fact, as web-developers we use request-response all the time, given the fact that HTTP implements it. Let's take a look.
 
 ```js
 // Using jQuery's syntax
@@ -109,13 +109,13 @@ myChannel.request('user-profile');
 
 In both cases you use the string as an identifier to request a resource in a decoupled fashion.
 
-As an aside, you might be wondering if POST is also request-response, as it might seem more like a Command. It actually is still using request-response because HTTP can *always* send a response, whereas Commands are forbidden from returning a response. It's best to think of POST and GET as extra data that you're tacking onto your request. To return to the world of Javascript, you could implement the same system by passing either 'POST' or 'GET' as an argument when you make your request.
+As an aside, you might be wondering if POST is also request-response, as it might seem more like a Command. It is, in fact, still using request-response because HTTP can *always* return a response, whereas Commands are forbidden from returning a response. It's best to think of POST and GET as extra data that you're tacking onto your request. To return to the world of Wreqr, you could implement the same system by passing either 'POST' or 'GET' as an argument when you make your request.
 
-If you're familiar with HTTP, then Wreqr shouldn't seem unusual to you. And if you believe that HTTP is useful when it comes to to decoupling the client and server, then maybe you'd be willing to consider that the same pattern might be useful within the client-side app itself. But for more on this topic you'll have to wait for the second part of this post!
+If you're familiar with HTTP, then Wreqr shouldn't seem unusual to you. And if you believe that HTTP is useful when it comes to to decoupling the client and server, then maybe you'd be willing to consider that the same pattern might be useful within the client-side app itself. But for more on this topic you'll have to wait for the second part of this post.
 
 ## "Objects are easier to test than Events"
 
-On this point, I disagree. Maciej's first point – requiring a dependency on the Application – is resolved when you no longer require in the Application to access the global Channel. As for his second point, testing an evented architecture is as easy as providing a mock endpoint for your tests. One of my favorite features of modern, client-heavy webapps is how easy it is to mock the server endpoints for testing. And by using evented architecture this same ease of testing carries over when testing my client code.
+I disagree with this argument. Maciej's first point – requiring a dependency on the Application – is resolved when you no longer require in the Application to access the global Channel. As for his second point, testing an evented architecture is as easy as providing a mock endpoint for your tests. One of my favorite features of modern, client-heavy webapps is how easy it is to mock the server endpoints for testing. And by using evented architecture this same ease of testing carries over when testing my client code.
 
 ## "Wreqr is more difficult to debug than methods on Objects"
 
