@@ -3,9 +3,9 @@ tags:
   - by Jmeas
 ---
 
-Recently, Maciej Kucharski wrote a [blog entry](http://naturaily.com/blog/post/marionette-plain-object-over-reqres-commands-above-all) in which he expresses his preference for using plain Objects over the event-based architecture that Backbone.Wreqr provides. In the post he justified his position with a number of arguments that I commonly hear when people explain why they dislike Wreqr.
+Recently, Maciej Kucharski wrote a [blog entry](http://naturaily.com/blog/post/marionette-plain-object-over-reqres-commands-above-all) in which he expresses his preference for using plain Objects over the event-based architecture that Backbone.Wreqr provides. There's nothing wrong with this opinion, and I don't believe that event-based architecture is for everyone. In fact, I'm certain that there are plenty of really well-written Marionette applications that don't use events at all. The thoughtfulness of Maciej's post suggests to me that he, too, is likely the author of such applications.
 
-I find a a number of these arguments to be solvable problems, or to otherwise lack substance, but this is no fault of Maciej's. Rather, I blame the lack of good documentation around proper use of Wreqr to be the cause of these misconceptions. Because of this lack of information on the subject, I felt compelled to write a two-part blog that covers my thoughts on event-based apps. The first post, the one you're reading now, explains why I'm not convinced by these common arguments that I should avoid using event-based architecture. The second post will be an effort to provide good reasons in favor of choosing event-based architecture.
+This post isn't meant to argue that Wreqr is required in all Marionette apps. Rather, it's meant to serve two points. First, it's intended to be a response to his arguments that I feel are either unsound, or otherwise present issues that are solvable. Secondly, it will try to provide good reasons in favor of choosing event-based architecture. These will be split up into two blog posts, one for each topic.
 
 (note: these headers are paraphrases from Maciej's original post)
 
