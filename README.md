@@ -30,7 +30,7 @@ Please create a new [GitHub issue](https://github.com/marionettejs/blog/issues/n
 *Note: Make sure you add a space after the colon*
 
 ##### To add multiple tags:
-    
+
     tags:
     - news
     - releases
@@ -39,7 +39,7 @@ Please create a new [GitHub issue](https://github.com/marionettejs/blog/issues/n
     tags:
     - news
     - by Uncle Bob
-    
+
 
 *Note: Make sure you write your name the same way for all posts so it filters correctly (so no Uncle Bob one week and Uncle Bobby the next)*
 
@@ -56,11 +56,19 @@ Please create a new [GitHub issue](https://github.com/marionettejs/blog/issues/n
 
 ### Steps to go live:
 
+#### One Time Setup
+
+`cd public`
+`git init`
+`git remote add live git@github.com:marionettejs/marionettejs.github.io.git`
+`git commit -m "initial"`
+`git reset --hard live/master`
+
 ##### 12. To publish a post (moves a post from [\_drafts](https://github.com/marionettejs/blog/tree/master/source/_drafts) to [\_posts](https://github.com/marionettejs/blog/tree/master/source/_posts) directory): `hexo p <filename>`
 
 ##### 13. To generate static files: `hexo generate`
 
-##### 14. Take the generated files from the `public` folder and push them to this [repo](https://github.com/marionettejs/marionettejs.github.io) which hosts the blog
+##### 14. cd into public, `git commit -m 'publish <TITLE>' && git push live/mater`
 
 ### Adding Images
 There's a matching folder with the same name as your post. Save you image(s) in that folder.
