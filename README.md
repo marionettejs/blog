@@ -59,10 +59,15 @@ Please create a new [GitHub issue](https://github.com/marionettejs/blog/issues/n
 #### One Time Setup
 
 `cd public`
+
 `git init`
+
 `git remote add live git@github.com:marionettejs/marionettejs.github.io.git`
+
 `git commit -m "initial"`
+
 `git reset --hard live/master`
+
 
 ##### 12. To publish a post (moves a post from [\_drafts](https://github.com/marionettejs/blog/tree/master/source/_drafts) to [\_posts](https://github.com/marionettejs/blog/tree/master/source/_posts) directory): `hexo p <filename>`
 
