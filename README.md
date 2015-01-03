@@ -73,7 +73,7 @@ Please create a new [GitHub issue](https://github.com/marionettejs/blog/issues/n
 
 ##### 13. To generate static files: `hexo generate`
 
-##### 14. cd into public, `git commit -m 'publish <TITLE>' && git push live/mater`
+##### 14. cd into public, `git commit -m 'publish <TITLE>' && git push live/master`
 
 ### Adding Images
 There's a matching folder with the same name as your post. Save you image(s) in that folder.
