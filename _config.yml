@@ -95,5 +95,6 @@ exclude_generator:
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type: heroku
-  repo: git@heroku.com:marionette-blog.git
+  type: github
+  repo: git@github.com:marionettejs/blog.git
+  branch: gh-pages
