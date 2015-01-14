@@ -5,7 +5,7 @@ tags:
 date: 2015-01-12 17:51:57
 ---
 
-This past friday the Marionette Team got together and did some v3 planning for the next release of Marionette. The focus of our conversation was on adding the missing pieces of the application layer that are very much needed within Marionette. Over the past few years there has been a community effort to establish patterns that allow people to build large applications in Marionette. We are exploring ways that we can codify those concepts into the core.
+This past Friday the Marionette Team got together and did some v3 planning for the next release of Marionette. The focus of our conversation was on adding the missing pieces of the application layer that are very much needed within Marionette. Over the past few years there has been a community effort to establish patterns that allow people to build large applications in Marionette. We are exploring ways that we can codify those concepts into the core.
 
 [@jmeas](https://github.com/jmeas/) has done some great work in this area via the creation of a library called [base-router](https://github.com/jmeas/backbone.base-router). We want to build on top of this work to create a router that has some new concepts such as state based routing and named routes. There will most likely be more features, inspired both from the ember router and angular ui router.
 
