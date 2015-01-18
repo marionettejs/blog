@@ -2,7 +2,6 @@ title: Marionette v2.0.1 Released
 date: 2014-07-05 13:24:56
 tags: releases
 ---
-![Marionette v2.0.1](v2.png)
 
 Marionette v2.0.1 has been released into the wild! There are lot of great features and changes, but don’t be scared to upgrade because we've created an awesome Upgrade Tool to help you.
 
