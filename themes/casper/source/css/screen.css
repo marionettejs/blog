@@ -86,12 +86,17 @@ html {
     height: 100%;
     max-height: 100%;
     font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
 body {
     height: 100%;
     max-height: 100%;
-    font-family: 'Noto Serif', serif;
+    font-family: 'Questrial', sans-serif;
     font-size: 2.0rem;
     line-height: 1.6em;
     color: #56585E;
@@ -373,7 +378,7 @@ margin on the iframe, cause it breaks stuff. */
     margin-bottom: 5rem;
     text-align: center;
     color: #fff;
-    background: #EDF3F8 no-repeat center center;
+    background: #EDF3F6 no-repeat center center;
     background-size: cover;
     border-bottom: 1px solid #bad1dc;
 }
@@ -406,7 +411,7 @@ margin on the iframe, cause it breaks stuff. */
     font-size: 1.8rem;
     line-height: 1.5em;
     font-weight: 300;
-    font-family: 'Noto Serif', serif;
+    font-family: 'Questrial', sans-serif;
     letter-spacing: 0;
     text-shadow: 0 1px 3px rgba(0,0,0,0.15);
 }
@@ -443,11 +448,17 @@ margin on the iframe, cause it breaks stuff. */
 }
 
 .post-title {
-    margin:0;
+    color: #555;
+    margin: 0;
 }
 
 .post-title a {
     text-decoration: none;
+}
+
+.post-title a:hover {
+    text-decoration: underline;
+    color: #2f2f2f;
 }
 
 .post-excerpt p {
@@ -459,7 +470,6 @@ margin on the iframe, cause it breaks stuff. */
 .post-meta {
     display: inline-block;
     margin: 0 0 5px 0;
-    font-family: 'Open Sans', sans-serif;
     font-size: 1.5rem;
     color: #9EABB3;
 }
@@ -807,7 +817,6 @@ pre .chunk {
     width: 80%;
     max-width: 700px;
     margin: 4rem auto;
-    font-family: 'Open Sans', sans-serif;
     font-size: 1.3rem;
     color: #9EABB3;
     text-align: center;
@@ -854,38 +863,33 @@ pre .chunk {
 
 .site-footer {
     position: relative;
-    margin: 8rem 0 0 0;
-    padding: 4rem 0;
-    border-top: #b0c9d8 1px solid;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.3rem;
-    line-height: 1.7em;
-    color: #b0c9d8;
+    padding: 20px 0;
+    border-top: #bad1dc 1px solid;
     text-align: center;
     background: #edf3f6;
+    height:120px;
+}
+
+footer p {
+    font-size: 16px;
+    color: #b0c9d8;
+    line-height: 30px;
 }
 
 .site-footer a {
-    color: #BBC7CC;
-    text-decoration: underline;
+    color: #b0c9d8;
+    text-decoration: none;
+    font-weight:bold
 }
 
 .site-footer a:hover {
-    color: #50585D;
+    color: #7da6bf;
+    text-decoration:underline;
 }
 
-.poweredby .icon-ghost {
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.poweredby .icon-ghost:hover {
-    text-decoration: none;
-}
-
-.poweredby .icon-ghost:before {
-    font-size: 1rem;
-    margin-right: 0.2em;
+.heart-icon{
+    margin: 0 3px;
+    color: #b0c9d8;
 }
 
 /* The subscribe icon on the footer */
