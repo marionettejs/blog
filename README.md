@@ -1,5 +1,5 @@
 # Marionette Blog
-![screenshot](logo.png)
+![screenshot](screenshot.png)
 
 ### This blog is built using [Hexo](http://hexo.io).
 
@@ -56,24 +56,22 @@ Please create a new [GitHub issue](https://github.com/marionettejs/blog/issues/n
 
 ### Steps to go live:
 
-#### One Time Setup
-
-`cd public`
-
-`git init`
-
-`git remote add live git@github.com:marionettejs/marionettejs.github.io.git`
-
-`git commit -m "initial"`
-
-`git reset --hard live/master`
-
-
 ##### 12. To publish a post (moves a post from [\_drafts](https://github.com/marionettejs/blog/tree/master/source/_drafts) to [\_posts](https://github.com/marionettejs/blog/tree/master/source/_posts) directory): `hexo p <filename>`
 
-##### 13. To generate static files: `hexo generate`
+##### 13. To generate static files into the `public` folder for hosting: `hexo generate`
 
-##### 14. cd into public, `git commit -m 'publish <TITLE>' && git push live/master`
+##### 14. To preview the blog: open the `index.html` file in the `public` folder
+
+##### 15. One time setup:
+
+* `cd public`
+* `git init`
+* `git remote add live git@github.com:marionettejs/blog.git`
+
+##### 16. To push to the `gh-pages` branch - NOT MASTER - (this is where [blog.marionettejs.com](http://blog.marionettejs.com) is hosted on GitHub):
+* Make sure you're still in the `public` directory
+* `git add .`
+* `git commit -m 'publish <TITLE>' && git push live master:gh-pages`
 
 ### Adding Images
 There's a matching folder with the same name as your post. Save you image(s) in that folder.
@@ -107,4 +105,4 @@ If you're responding to a comment on Disqus and want syntax highlighting, place 
 *Happy blogging!*
 
 ***************************
-###### Got questions? Contact @jdaudier at [![Gitter chat](https://badges.gitter.im/marionettejs/backbone.marionette.png)](https://gitter.im/marionettejs/backbone.marionette)
+###### Got questions? Contact [@jdaudier](https://github.com/jdaudier) at [![Gitter chat](https://badges.gitter.im/marionettejs/backbone.marionette.png)](https://gitter.im/marionettejs/backbone.marionette)
