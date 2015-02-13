@@ -81,7 +81,7 @@ delegateEvents: function(events) {
     // event that we will be registering on the DOM node.
     var match = key.match(delegateEventSplitter);
     // In our case eventName will be click and selector will be 'p'
-    // var eventName = match[1], selector = match[2];
+    var eventName = match[1], selector = match[2];
     // The next step is to ensure that the `this`
     // context of the event handler will be
     // our view as compared to the default `this` context
