@@ -3,7 +3,7 @@
   "scripts": {
     "postinstall": "hexo generate"
   },
-  "version": "2.7.1",
+  "version": "2.8.3",
   "private": true,
   "dependencies": {
     "connect": "2.x",
@@ -11,7 +11,7 @@
     "hexo-generator-feed": "^0.1.2",
     "hexo-livereload": "^0.1.0",
     "hexo-renderer-ejs": "*",
-    "hexo-renderer-marked": "*",
-    "hexo-renderer-stylus": "*"
+    "hexo-renderer-marked": "~0.1.0",
+    "hexo-renderer-stylus": "~0.1.0"
   }
 }

@@ -1,6 +1,6 @@
 var connect = require('connect'),
   app = connect.createServer(),
-  port = process.env.PORT;
+  port = '8080';
 
 app.use(connect.static(__dirname + '/public'));
 app.use(connect.compress());
