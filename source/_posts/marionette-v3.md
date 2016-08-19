@@ -42,7 +42,7 @@ const myView = new MyView();
 myView.render();
 ````
 
-[Live example](https://jsfiddle.net/599dtsb7/24/)
+[Live example](https://jsfiddle.net/marionettejs/1myrqxtq/)
 
 
 #### How does `View` handle regions?
@@ -79,7 +79,7 @@ const myView = new MyView();
 myView.render();
 ````
 
-[Live example](https://jsfiddle.net/599dtsb7/26/)
+[Live example](https://jsfiddle.net/marionettejs/bux7fppo/)
 
 
 #### How can I build table or tree without `CompositeView`?
@@ -117,7 +117,7 @@ const myView = new MyView();
 myView.render();
 
 ````
-[Live example](https://jsfiddle.net/599dtsb7/25/)
+[Live example](https://jsfiddle.net/marionettejs/gdevncaa/)
 
 
 #### Child views events
@@ -158,7 +158,7 @@ const myView = new MyView();
 myView.render();
 ````
 
-[Live example](https://jsfiddle.net/599dtsb7/27/)
+[Live example](https://jsfiddle.net/marionettejs/5m4batjk/)
 
 
 #### Proxied events do not append `this` by default
@@ -183,8 +183,8 @@ const MyView = Mn.View.extend({
   onRender() {
     this.showChildView('region1', myView1);
     myView1.triggerMethod('foo', 'bar');
-  }
-  onChildViewFoo: function(childView, myArg) {
+  },
+  onChildviewFoo: function(childView, myArg) {
     // In Marionette v2 childView === myView1 and myArg === 'bar'
     // In Marionette v3 childView === 'bar' and myArg === undefined
   }
@@ -193,6 +193,8 @@ const myView = new MyView();
 
 myView.render();
 ````
+
+[Live example](https://jsfiddle.net/marionettejs/sLrqLymg/)
 
 ### Templates
 
@@ -256,7 +258,7 @@ const myView = new MyView();
 myView.render();
 ````
 
-[Live example](https://jsfiddle.net/599dtsb7/28/)
+[Live example](https://jsfiddle.net/marionettejs/enwLwzue/)
 
 
 ## Backbone.BabySitter
