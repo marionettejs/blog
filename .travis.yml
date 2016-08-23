@@ -1,0 +1,10 @@
+language: node_js
+sudo: false
+node_js:
+  - "5.3"
+before_script:
+  - npm i
+  - git config --global user.email "travis@marionettejs.com"
+  - git config --global user.name "TRAVIS-CI"
+script:
+  - bash ./travis-runner.sh
