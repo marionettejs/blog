@@ -278,7 +278,7 @@ For additional information check out the [upgrade guide](https://github.com/mari
 The [Marionette v3 compat tool](https://github.com/marionettejs/marionette-v3-compat#available-patches) also details the breaking changes in its documentation.
 
 We would strongly recommend looking at [Marionette guides](https://www.gitbook.com/book/marionette/marionette-guides/details),
-[simple setups wth different build tools](https://github.com/marionettejs/marionette-integrations) and [additional resources](http://marionettejs.com/additional-resources/)
+[simple setups with different build tools](https://github.com/marionettejs/marionette-integrations) and [additional resources](http://marionettejs.com/additional-resources/)
 to build awesome stuff using Marionette.js v3.
 
 Thank you everyone for your contributions and helping v3 out! Cheers!
