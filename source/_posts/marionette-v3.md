@@ -1,5 +1,5 @@
 title: Marionette.js v3. Getting started with new version 
-date: 2016-08-10 21:19:00 
+date: 2016-08-23 11:51:00 
 tags: 
 - backbone
 - marionette
