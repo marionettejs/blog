@@ -1,6 +1,7 @@
 title: Meeting notes 12.30.14
 tags:
   - notes
+date: 2014-12-30 11:46:03
 ---
 Meeting notes 12.30.14
 
