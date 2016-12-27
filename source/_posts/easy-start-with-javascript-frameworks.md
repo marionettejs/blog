@@ -18,7 +18,7 @@ In this article we will try to create start page creating `html` page and writin
 > Note: Marionette.js is build on top of [Backbone.js](backbonejs.org) and as Backbone.js can't work without [jQuery](https://jquery.com/), [Underscore.js](http://underscorejs.org/).
 
 Lets write some code!
-First of all you have to create `html` page with all needed dependancies.
+First of all you have to create an `html` page with all needed dependancies.
 
 ```html
 <!DOCTYPE html>
@@ -42,9 +42,9 @@ First of all you have to create `html` page with all needed dependancies.
 > Note: Scripts are loaded using [cdn](https://en.wikipedia.org/wiki/Content_delivery_network), instead of copying files locally.
 
 
-`#app` is a main region where all content using Marionette.js will be rendered.
+`#app` is the main region where all content using Marionette.js will be rendered.
 
-Now we need create some javascript file but before doing that we should look at the [documentation](http://marionettejs.com/docs/v3.1.0/marionette.application.html).
+We need create some javascript file but, before doing that, we should look at the [documentation](http://marionettejs.com/docs/v3.1.0/marionette.application.html).
 
 So we will extend `Marionette.Application` class to create our own. We use for this inheritance principle.
 
@@ -54,7 +54,7 @@ var App = Marionette.Application.extend({
 });
 ```
 
-Now we want to show something in our region. We have to create view.
+Now, to show something in our region, we need to create a view.
  > Note: [Here](http://marionettejs.com/docs/master/marionette.view.html) docs about views.
 
 ```javascript
@@ -63,7 +63,7 @@ var View = Mn.View.extend({
 });
 ```
 
-Template for View will be placed in scope of body tag. In our small example is used [Underscore template engine](http://underscorejs.org/#template)
+The `template` for `View` is a jQuery selector to a script tag in our HTML body. For this example, we're using [Underscore template engine](http://underscorejs.org/#template)
 
 ```
 <script id="template-layout" type="x-template/underscore">
@@ -116,7 +116,7 @@ Lets put all code together in some file, call it `app.js` and include it in `htm
 
 ```
 
-> Note: All code is put in  [closure](https://developer.mozilla.org/en/docs/Web/JavaScript/Closures) to not let variables get in global scope.
+> Note: All code is put in  [closure](https://developer.mozilla.org/en/docs/Web/JavaScript/Closures) to prevent variables leaking into global scope.
 
 Final working version you can find [here](https://github.com/marionettejs/marionette-integrations/tree/vanilla-example/vanilla).
 > Note: It uses ES2015 features.
