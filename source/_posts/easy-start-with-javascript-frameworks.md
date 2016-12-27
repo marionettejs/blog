@@ -44,7 +44,7 @@ First of all you have to create an `html` page with all needed dependancies.
 
 `#app` is the main region where all content using Marionette.js will be rendered.
 
-We need create some javascript file but, before doing that, we should look at the [documentation](http://marionettejs.com/docs/v3.1.0/marionette.application.html).
+We need to create some javascript file but, before doing that, we should look at the [documentation](http://marionettejs.com/docs/v3.1.0/marionette.application.html).
 
 So we will extend `Marionette.Application` class to create our own. We use for this inheritance principle.
 
@@ -120,3 +120,5 @@ Lets put all code together in some file, call it `app.js` and include it in `htm
 
 Final working version you can find [here](https://github.com/marionettejs/marionette-integrations/tree/vanilla-example/vanilla).
 > Note: It uses ES2015 features.
+
+[@denar90](https://github.com/denar90)
