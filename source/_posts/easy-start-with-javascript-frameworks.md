@@ -1,5 +1,5 @@
 title: Easy start with javascript frameworks using Marionette.js
-date: 2016-10-27 11:51:00
+date: 2016-12-27 11:51:00
 tags: 
 - backbone
 - marionette
