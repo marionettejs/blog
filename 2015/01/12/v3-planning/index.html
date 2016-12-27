@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Marionette Version 3 Discussions | Marionette.js Blog</title>
+  <meta name="description" content="Detailed analysis showing usage of Marionette features within real-world applications" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#b91d47">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" type="text/css" href="../../../../css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Questrial" />
+
+  <meta name="generator" content="Marionette.js Blog">
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  
+</head>
+
+
+<body class="post-template">
+
+  
+
+<main class="content" role="main">
+  <article class="post">
+    <header class="post-header">
+      <a class="blog-logo" href="../../../../index.html">
+        
+        <img src="http://marionettejs.com/images/marionette.svg" alt="Blog Logo"/></a>
+        
+      </a>
+    </header>
+    <span class="post-meta">
+      <time datetime="2015-01-12T15:51:57.000Z" itemprop="datePublished">Jan 12 2015</time>
+       in<a href='../../../../tags/v3/index.html' style='margin:0 5px;'>v3</a><a href='../../../../tags/plans/index.html' style='margin:0 5px;'>plans</a>
+    </span>
+    <h1 class="post-title">Marionette Version 3 Discussions</h1>
+    <section class="post-content">
+      <p>This past Friday the Marionette Team got together and did some v3 planning for the next release of Marionette. The focus of our conversation was on adding the missing pieces of the application layer that are very much needed within Marionette. Over the past few years there has been a community effort to establish patterns that allow people to build large applications in Marionette. We are exploring ways that we can codify those concepts into the core.</p>
+<p><a href="https://github.com/jmeas/" target="_blank" rel="external">@jmeas</a> has done some great work in this area via the creation of a library called <a href="https://github.com/jmeas/backbone.base-router" target="_blank" rel="external">base-router</a>. We want to build on top of this work to create a router that has some new concepts such as state based routing and named routes. There will most likely be more features, inspired both from the ember router and angular ui router.</p>
+<p>We then moved onto talking about the <code>Application</code> layer of Marionette. Currently it does several things but is still generic and does not integrate automatically with the concepts that Marionette already has baked in - just look at the amount of code needed to kick off a marionette app <a href="http://jsfiddle.net/samccone/F59qp/" target="_blank" rel="external">demo</a>. We are planning on more tightly coupling the router to the Application object as well as hardening the concept of an application having a life-cycle.</p>
+<p>There was talk of investigating the ability for an application to contain “sub applications” which are just application objects that are started and stopped automatically depending on their parent app state. This concept should make it straightforward to allow you to add significant app complexity without having to engineer a bespoke way to manange application life cycle.</p>
+<p>Thoughts, concerns? Want to come chat V3? Come join us!</p>
+<p><a href="https://gitter.im/marionettejs/backbone.marionette?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge" target="_blank" rel="external"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a></p>
+<blockquote>
+<p>Note that these are early discussions and the final result may be different than what is listed above.</p>
+</blockquote>
+<p>-<br><a href="http://github.com/samccone" target="_blank" rel="external">@samccone</a></p>
+
+    </section>
+      <div id="disqus_thread"></div>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      <footer class="post-footer">
+      <section class="share">
+        <h4>Share this post</h4>
+        <a class="icon-twitter" href="http://twitter.com/share?url=http://marionettejs.github.io/2015/01/12/v3-planning/"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+        </a>
+        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://marionettejs.github.io/2015/01/12/v3-planning/"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+        </a>
+        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://marionettejs.github.io/2015/01/12/v3-planning/"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+        </a>
+      </section>
+    </footer>
+  </article>
+</main>
+
+
+  
+<footer class="site-footer">
+  
+  <a class="subscribe icon-feed" href="../../../../atom.xml"><span class="tooltip">Subscribe!</span></a>
+  
+  <div class="inner">
+     <p>Made with
+       <span class="heart-icon">&hearts;</span>by&nbsp;
+       <a href="https://github.com/marionettejs/marionettejs.com/graphs/contributors" target="_blank">all of us</a>
+     </p>
+  </div>
+</footer>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="../../../../js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="../../../../js/index.js"></script>
+
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-52727533-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'marionette';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Easy start with javascript frameworks using Marionette.js | Marionette.js Blog</title>
+  <meta name="description" content="Detailed analysis showing usage of Marionette features within real-world applications" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#b91d47">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" type="text/css" href="../../../../css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Questrial" />
+
+  <meta name="generator" content="Marionette.js Blog">
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  
+</head>
+
+
+<body class="post-template">
+
+  
+
+<main class="content" role="main">
+  <article class="post">
+    <header class="post-header">
+      <a class="blog-logo" href="../../../../index.html">
+        
+        <img src="http://marionettejs.com/images/marionette.svg" alt="Blog Logo"/></a>
+        
+      </a>
+    </header>
+    <span class="post-meta">
+      <time datetime="2016-12-27T09:51:00.000Z" itemprop="datePublished">Dec 27 2016</time>
+       in<a href='../../../../tags/backbone/index.html' style='margin:0 5px;'>backbone</a><a href='../../../../tags/marionette/index.html' style='margin:0 5px;'>marionette</a><a href='../../../../tags/learning/index.html' style='margin:0 5px;'>learning</a><a href='../../../../tags/v3/index.html' style='margin:0 5px;'>v3</a>
+    </span>
+    <h1 class="post-title">Easy start with javascript frameworks using Marionette.js</h1>
+    <section class="post-content">
+      <p>This article is going to be helpful for people who just started learn javascript<br>frameworks. Some of you might be aware about <a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f#.tuxjtwlkb" target="_blank" rel="external">this</a> and other articles which are describing how it’s hard to dive into javascript world. We decided to write this article to make lives easier for people want join javascript community.</p>
+<p>There are a lot of libraries, frameworks, tools and other stuff which might confuse javascript newcomer.<br>If you knew something about javascript and want to try some javascript framework then we propose <a href="http://marionettejs.com/" target="_blank" rel="external">Marionette.js</a>.</p>
+<p>In this article we will try to create start page creating <code>html</code> page and writing some javascript code using Marionette.js without any build tools or other stuff which can confuse you.</p>
+<blockquote>
+<p>Note: Marionette.js is build on top of <a href="backbonejs.org">Backbone.js</a> and as Backbone.js can’t work without <a href="https://jquery.com/" target="_blank" rel="external">jQuery</a>, <a href="http://underscorejs.org/" target="_blank" rel="external">Underscore.js</a>.</p>
+</blockquote>
+<p>Lets write some code!<br>First of all you have to create an <code>html</code> page with all needed dependancies.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"initial-scale=1.0, user-scalable=no"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>First application with Marionette.js<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/backbone.radio/2.0.0/backbone.radio.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/3.1.0/backbone.marionette.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>Note: Scripts are loaded using <a href="https://en.wikipedia.org/wiki/Content_delivery_network" target="_blank" rel="external">cdn</a>, instead of copying files locally.</p>
+</blockquote>
+<p><code>#app</code> is the main region where all content using Marionette.js will be rendered.</p>
+<p>We need to create some javascript file but, before doing that, we should look at the <a href="http://marionettejs.com/docs/v3.1.0/marionette.application.html" target="_blank" rel="external">documentation</a>.</p>
+<p>So we will extend <code>Marionette.Application</code> class to create our own. We use for this inheritance principle.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> App = Marionette.Application.extend(&#123;</div><div class="line">  <span class="attr">region</span>: <span class="string">'#app'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Now, to show something in our region, we need to create a view.</p>
+<blockquote>
+<p>Note: <a href="http://marionettejs.com/docs/master/marionette.view.html" target="_blank" rel="external">Here</a> docs about views.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> View = Mn.View.extend(&#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'#template-layout'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>The <code>template</code> for <code>View</code> is a jQuery selector to a script tag in our HTML body. For this example, we’re using <a href="http://underscorejs.org/#template" target="_blank" rel="external">Underscore template engine</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script id=&quot;template-layout&quot; type=&quot;x-template/underscore&quot;&gt;</div><div class="line">  &lt;div id=&quot;content&quot;&gt;</div><div class="line">    &lt;h1&gt;&amp;nbsp;&lt;/h1&gt;</div><div class="line">    &lt;h2&gt;Welcome!&lt;/h2&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">      &lt;li&gt;&lt;a href=&quot;http://marionettejs.com/&quot;&gt;Marionette.js homepage&lt;/a&gt;&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>To show View in main region lets use <code>showView</code> method when application starts.<br>Final code of Application Class will be:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> App = Marionette.Application.extend(&#123;</div><div class="line">  <span class="attr">region</span>: <span class="string">'#app'</span>,</div><div class="line"></div><div class="line">  <span class="attr">onStart</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.showView(<span class="keyword">new</span> View());</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Lets put all code together in some file, call it <code>app.js</code> and include it in <code>html</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> View = Mn.View.extend(&#123;</div><div class="line">    <span class="attr">template</span>: <span class="string">'#template-layout'</span></div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  <span class="keyword">var</span> App = Mn.Application.extend(&#123;</div><div class="line">    <span class="attr">region</span>: <span class="string">'#app'</span>,</div><div class="line"></div><div class="line">    <span class="attr">onStart</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.showView(<span class="keyword">new</span> View());</div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  <span class="keyword">var</span> app = <span class="keyword">new</span> App();</div><div class="line"></div><div class="line">  app.start();</div><div class="line"></div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Note: All code is put in  <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Closures" target="_blank" rel="external">closure</a> to prevent variables leaking into global scope.</p>
+</blockquote>
+<p>Final working version you can find <a href="https://github.com/marionettejs/marionette-integrations/tree/vanilla-example/vanilla" target="_blank" rel="external">here</a>.</p>
+<blockquote>
+<p>Note: It uses ES2015 features.</p>
+</blockquote>
+<p><a href="https://github.com/denar90" target="_blank" rel="external">@denar90</a></p>
+
+    </section>
+      <div id="disqus_thread"></div>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      <footer class="post-footer">
+      <section class="share">
+        <h4>Share this post</h4>
+        <a class="icon-twitter" href="http://twitter.com/share?url=http://marionettejs.github.io/2016/12/27/easy-start-with-javascript-frameworks/"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+        </a>
+        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://marionettejs.github.io/2016/12/27/easy-start-with-javascript-frameworks/"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+        </a>
+        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://marionettejs.github.io/2016/12/27/easy-start-with-javascript-frameworks/"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+        </a>
+      </section>
+    </footer>
+  </article>
+</main>
+
+
+  
+<footer class="site-footer">
+  
+  <a class="subscribe icon-feed" href="../../../../atom.xml"><span class="tooltip">Subscribe!</span></a>
+  
+  <div class="inner">
+     <p>Made with
+       <span class="heart-icon">&hearts;</span>by&nbsp;
+       <a href="https://github.com/marionettejs/marionettejs.com/graphs/contributors" target="_blank">all of us</a>
+     </p>
+  </div>
+</footer>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="../../../../js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="../../../../js/index.js"></script>
+
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-52727533-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'marionette';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+</body>
+</html>

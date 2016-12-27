@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Marionette.js v3. Getting started with new version | Marionette.js Blog</title>
+  <meta name="description" content="Detailed analysis showing usage of Marionette features within real-world applications" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#b91d47">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" type="text/css" href="../../../../css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Questrial" />
+
+  <meta name="generator" content="Marionette.js Blog">
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  
+</head>
+
+
+<body class="post-template">
+
+  
+
+<main class="content" role="main">
+  <article class="post">
+    <header class="post-header">
+      <a class="blog-logo" href="../../../../index.html">
+        
+        <img src="http://marionettejs.com/images/marionette.svg" alt="Blog Logo"/></a>
+        
+      </a>
+    </header>
+    <span class="post-meta">
+      <time datetime="2016-08-23T08:51:00.000Z" itemprop="datePublished">Aug 23 2016</time>
+       in<a href='../../../../tags/backbone/index.html' style='margin:0 5px;'>backbone</a><a href='../../../../tags/marionette/index.html' style='margin:0 5px;'>marionette</a><a href='../../../../tags/learning/index.html' style='margin:0 5px;'>learning</a><a href='../../../../tags/v3/index.html' style='margin:0 5px;'>v3</a>
+    </span>
+    <h1 class="post-title">Marionette.js v3. Getting started with new version</h1>
+    <section class="post-content">
+      <p>Welcome to the party.</p>
+<p>The main goal of Marionette v3 was to clean up and simplify the API.<br>The library was converted to ES6 and organized for easier contribution.<br>Marionette v3 is both smaller and faster than v2.x.</p>
+<p>In future major releases we hope to improve the performance and simplify further.</p>
+<p>Let’s go through some of the changes in v3.</p>
+<h2 id="View"><a href="#View" class="headerlink" title="View"></a>View</h2><p>Version 2.x had many different kinds of views: <code>View</code>, <code>ItemView</code>,<br><code>LayoutView</code>, <code>CollectionView</code>, <code>CompositeView</code>.</p>
+<p>In version 3 <code>ItemView</code>, and <code>LayoutView</code> were ‘merged’ into <code>View</code>,<br>and <code>CompositeView</code> was deprecated for removal in v4.<br>Now we have only <code>View</code> and <code>CollectionView</code>.</p>
+<p>Here are some simple examples:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Mn <span class="keyword">from</span> <span class="string">'backbone.marionette'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> template = _.template(<span class="string">'&lt;h1&gt;Marionette says hello!&lt;/h1&gt;'</span>);</div><div class="line"><span class="keyword">const</span> MyView = Mn.View.extend(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'body'</span>,</div><div class="line">  <span class="attr">template</span>: template</div><div class="line">&#125;);</div><div class="line"><span class="keyword">const</span> myView = <span class="keyword">new</span> MyView();</div><div class="line"></div><div class="line">myView.render();</div></pre></td></tr></table></figure>
+<p><a href="https://jsfiddle.net/marionettejs/1myrqxtq/" target="_blank" rel="external">Live example</a></p>
+<h4 id="How-does-View-handle-regions"><a href="#How-does-View-handle-regions" class="headerlink" title="How does View handle regions?"></a>How does <code>View</code> handle regions?</h4><p>The same as <code>LayoutView</code> did however regions are no longer attached<br>directly to the view.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Mn <span class="keyword">from</span> <span class="string">'backbone.marionette'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> template1 = _.template(<span class="string">'&lt;h1&gt;Marionette says hello!&lt;/h1&gt;'</span>);</div><div class="line"><span class="keyword">const</span> template2 = _.template(<span class="string">'&lt;h1&gt;Marionette is awesome!&lt;/h1&gt;'</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> myView1 = <span class="keyword">new</span> Mn.View(&#123;<span class="attr">template</span>: template1&#125;);</div><div class="line"><span class="keyword">const</span> myView2 = <span class="keyword">new</span> Mn.View(&#123;<span class="attr">template</span>: template2&#125;);</div><div class="line"></div><div class="line"><span class="keyword">const</span> MyView = Mn.View.extend(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#container'</span>,</div><div class="line">  <span class="attr">template</span>: <span class="literal">false</span>,</div><div class="line">  <span class="attr">regions</span>: &#123;</div><div class="line">    <span class="attr">region1</span>: <span class="string">'#region1'</span>,</div><div class="line">    <span class="attr">region2</span>: <span class="string">'#region2'</span></div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  onRender() &#123;</div><div class="line">    <span class="comment">// Since in v3 regions are no longer attached to the view</span></div><div class="line">    <span class="comment">// this.region1.show(myView1) will throw an error saying </span></div><div class="line">    <span class="comment">// show is not a function on undefined (region1).</span></div><div class="line">    <span class="keyword">this</span>.getRegion(<span class="string">'region1'</span>).show(myView1);</div><div class="line">    <span class="keyword">this</span>.showChildView(<span class="string">'region2'</span>, myView2); <span class="comment">// Preferred method for showing child views</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"><span class="keyword">const</span> myView = <span class="keyword">new</span> MyView();</div><div class="line"></div><div class="line">myView.render();</div></pre></td></tr></table></figure>
+<p><a href="https://jsfiddle.net/marionettejs/bux7fppo/" target="_blank" rel="external">Live example</a></p>
+<h4 id="How-can-I-build-table-or-tree-without-CompositeView"><a href="#How-can-I-build-table-or-tree-without-CompositeView" class="headerlink" title="How can I build table or tree without CompositeView?"></a>How can I build table or tree without <code>CompositeView</code>?</h4><p>If you build your table or tree using <code>CompositeView</code> just take a look <a href="http://marionettejs.com/docs/v3.0.0/marionette.collectionview.html#rendering-tables" target="_blank" rel="external">here</a><br>to learn how to easily migrate to using <code>View</code> and <code>CollectionView</code>.</p>
+<h3 id="View-events"><a href="#View-events" class="headerlink" title="View events"></a>View events</h3><p>In version 3 the region events <code>show</code> and <code>before:show</code> are no longer triggered<br>on the view. You can use <code>render</code> and <code>before:render</code> events in most cases. If<br>you need to know that the view is in the DOM then you can use <code>attach</code> or <code>dom:refresh</code><br>which is triggered after the attach event and every <em>subsequent</em> <code>render</code> event.<br>Learn more about view lifecycle events <a href="http://marionettejs.com/docs/v3.0.0/marionette.view.html#lifecycle-events" target="_blank" rel="external">here</a>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Mn <span class="keyword">from</span> <span class="string">'backbone.marionette'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> template = _.template(<span class="string">'&lt;h1&gt;Marionette says hello!&lt;/h1&gt;'</span>);</div><div class="line"><span class="keyword">const</span> MyView = Mn.View.extend(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'body'</span>,</div><div class="line">  <span class="attr">template</span>: template,</div><div class="line"></div><div class="line">  onBeforeRender() &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Before render'</span>)</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  onRender() &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Render'</span>)</div><div class="line">  &#125;,</div><div class="line">&#125;);</div><div class="line"><span class="keyword">const</span> myView = <span class="keyword">new</span> MyView();</div><div class="line"></div><div class="line">myView.render();</div></pre></td></tr></table></figure>
+<p><a href="https://jsfiddle.net/marionettejs/gdevncaa/" target="_blank" rel="external">Live example</a></p>
+<h4 id="Child-views-events"><a href="#Child-views-events" class="headerlink" title="Child views events"></a>Child views events</h4><p>The <code>childEvents</code> attribute was renamed to <code>childViewEvents</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Mn <span class="keyword">from</span> <span class="string">'backbone.marionette'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> template1 = _.template(<span class="string">'&lt;h1&gt;Marionette says hello!&lt;/h1&gt;'</span>);</div><div class="line"><span class="keyword">const</span> template2 = _.template(<span class="string">'&lt;h1&gt;Marionette is awesome!&lt;/h1&gt;'</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> myView1 = <span class="keyword">new</span> Mn.View(&#123;<span class="attr">template</span>: template1&#125;);</div><div class="line"><span class="keyword">const</span> myView2 = <span class="keyword">new</span> Mn.View(&#123;<span class="attr">template</span>: template2&#125;);</div><div class="line"></div><div class="line"><span class="keyword">const</span> MyView = Mn.View.extend(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#container'</span>,</div><div class="line">  <span class="attr">template</span>: <span class="literal">false</span>,</div><div class="line">  <span class="attr">regions</span>: &#123;</div><div class="line">    <span class="attr">region1</span>: <span class="string">'#region1'</span>,</div><div class="line">    <span class="attr">region2</span>: <span class="string">'#region2'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">childViewEvents</span>: &#123;</div><div class="line">    <span class="string">'render'</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="comment">//this will be called twice because there are 2 childView which trigger `render` event</span></div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'ChildView was rendered'</span>);</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line"></div><div class="line"></div><div class="line">  onRender() &#123;</div><div class="line">    <span class="keyword">this</span>.showChildView(<span class="string">'region1'</span>, myView1);</div><div class="line">    <span class="keyword">this</span>.showChildView(<span class="string">'region2'</span>, myView2);</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"><span class="keyword">const</span> myView = <span class="keyword">new</span> MyView();</div><div class="line"></div><div class="line">myView.render();</div></pre></td></tr></table></figure>
+<p><a href="https://jsfiddle.net/marionettejs/5m4batjk/" target="_blank" rel="external">Live example</a></p>
+<h4 id="Proxied-events-do-not-append-this-by-default"><a href="#Proxied-events-do-not-append-this-by-default" class="headerlink" title="Proxied events do not append this by default"></a>Proxied events do not append <code>this</code> by default</h4><p>In Marionette v2 all events that were proxied to the parent prepended the child view as the<br>1st argument of the event. In v3 this is no longer the case. All internally triggered events<br>will prepend the childView as the 1st argument, but custom triggered events won’t by default.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Mn <span class="keyword">from</span> <span class="string">'backbone.marionette'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> template1 = _.template(<span class="string">'&lt;h1&gt;Marionette says hello!&lt;/h1&gt;'</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> myView1 = <span class="keyword">new</span> Mn.View(&#123;<span class="attr">template</span>: template1&#125;);</div><div class="line"></div><div class="line"><span class="keyword">const</span> MyView = Mn.View.extend(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#container'</span>,</div><div class="line">  <span class="attr">template</span>: <span class="literal">false</span>,</div><div class="line">  <span class="attr">regions</span>: &#123;</div><div class="line">    <span class="attr">region1</span>: <span class="string">'#region1'</span></div><div class="line">  &#125;,</div><div class="line">  onRender() &#123;</div><div class="line">    <span class="keyword">this</span>.showChildView(<span class="string">'region1'</span>, myView1);</div><div class="line">    myView1.triggerMethod(<span class="string">'foo'</span>, <span class="string">'bar'</span>);</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">onChildviewFoo</span>: <span class="function"><span class="keyword">function</span>(<span class="params">childView, myArg</span>) </span>&#123;</div><div class="line">    <span class="comment">// In Marionette v2 childView === myView1 and myArg === 'bar'</span></div><div class="line">    <span class="comment">// In Marionette v3 childView === 'bar' and myArg === undefined</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"><span class="keyword">const</span> myView = <span class="keyword">new</span> MyView();</div><div class="line"></div><div class="line">myView.render();</div></pre></td></tr></table></figure>
+<p><a href="https://jsfiddle.net/marionettejs/sLrqLymg/" target="_blank" rel="external">Live example</a></p>
+<h3 id="Templates"><a href="#Templates" class="headerlink" title="Templates"></a>Templates</h3><p><code>templateHelpers</code> property was renamed to <code>templateContext</code>.</p>
+<h2 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h2><p><code>Marionette.Controller</code> was removed. Use <code>Marionette.Object</code></p>
+<h2 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h2><p>Application now only accepts a single region instead of acting more as a <code>LayoutView</code>.<br>Also initializers were removed. Use the <code>start</code> event to initialize other classes.<br>Last the global wreqr channels on <code>Application</code> were removed. Use <code>Backbone.Radio</code> channels.</p>
+<h2 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h2><p><code>Marionette.Module</code> was removed. A modern module loader such as browserify or webpack is preferred.<br>However there is a shim for <code>Marionette.Module</code> available <a href="https://github.com/marionettejs/marionette.module" target="_blank" rel="external">here</a>.</p>
+<h2 id="RegionManager"><a href="#RegionManager" class="headerlink" title="RegionManager"></a>RegionManager</h2><p><code>Marionette.RegionManager</code> was removed. This publicly exposed class was mostly used as a common<br>class used between <code>LayoutView</code> and <code>Application</code>.</p>
+<h2 id="Backbone-Radio"><a href="#Backbone-Radio" class="headerlink" title="Backbone.Radio"></a>Backbone.Radio</h2><p><code>Backbone.Wreqr</code> was replaced with <code>Backbone.Radio</code><br><a href="http://blog.marionettejs.com/2014/07/11/introducing-backbone-radio/index.html" target="_blank" rel="external">Read more</a><br>on why we decided to replace it.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Mn <span class="keyword">from</span> <span class="string">'backbone.marionette'</span>;</div><div class="line"><span class="keyword">import</span> Radio <span class="keyword">from</span> <span class="string">'backbone.radio'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> channel = Radio.channel(<span class="string">'notify'</span>);</div><div class="line"></div><div class="line"><span class="keyword">const</span> Notification = Mn.Object.extend(&#123;</div><div class="line">  <span class="attr">initialize</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    channel.reply(<span class="string">'show:message'</span>, <span class="keyword">this</span>.showMessage);</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">  <span class="attr">showMessage</span>: <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">    alert(msg)</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">const</span> notify = <span class="keyword">new</span> Notification();</div><div class="line"></div><div class="line"><span class="keyword">const</span> MyView = Mn.View.extend(&#123;</div><div class="line">  <span class="attr">template</span>: <span class="literal">false</span>,</div><div class="line"></div><div class="line">  <span class="attr">onRender</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    channel.request(<span class="string">'show:message'</span>, <span class="string">'View was rendered'</span>);</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">const</span> myView = <span class="keyword">new</span> MyView();</div><div class="line"></div><div class="line">myView.render();</div></pre></td></tr></table></figure>
+<p><a href="https://jsfiddle.net/marionettejs/enwLwzue/" target="_blank" rel="external">Live example</a></p>
+<h2 id="Backbone-BabySitter"><a href="#Backbone-BabySitter" class="headerlink" title="Backbone.BabySitter"></a>Backbone.BabySitter</h2><p><code>Backbone.BabySitter</code> which was a fundament for managing child view,<br>became a core part of <code>Marionette.js</code>, and is no longer a dependency of Marionette.<br>Don’t worry if you use it directly, it’s still a supported library so you can use it<br>separately in your <code>Backbone.js</code> applications.</p>
+<h2 id="Marionette’s-bundled-build"><a href="#Marionette’s-bundled-build" class="headerlink" title="Marionette’s bundled build"></a>Marionette’s bundled build</h2><p>Marionette now only has a single build and requires Radio as a dependency.</p>
+<h2 id="Other-changes"><a href="#Other-changes" class="headerlink" title="Other changes"></a>Other changes</h2><p>For additional information check out the <a href="https://github.com/marionettejs/backbone.marionette/blob/next/docs/upgrade.md" target="_blank" rel="external">upgrade guide</a>.<br>The <a href="https://github.com/marionettejs/marionette-v3-compat#available-patches" target="_blank" rel="external">Marionette v3 compat tool</a> also details the breaking changes in its documentation.</p>
+<p>We would strongly recommend looking at <a href="https://www.gitbook.com/book/marionette/marionette-guides/details" target="_blank" rel="external">Marionette guides</a>,<br><a href="https://github.com/marionettejs/marionette-integrations" target="_blank" rel="external">simple setups with different build tools</a> and <a href="http://marionettejs.com/additional-resources/" target="_blank" rel="external">additional resources</a><br>to build awesome stuff using Marionette.js v3.</p>
+<p>Thank you everyone for your contributions and helping v3 out! Cheers!</p>
+
+    </section>
+      <div id="disqus_thread"></div>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      <footer class="post-footer">
+      <section class="share">
+        <h4>Share this post</h4>
+        <a class="icon-twitter" href="http://twitter.com/share?url=http://marionettejs.github.io/2016/08/23/marionette-v3/"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <span class="hidden">Twitter</span>
+        </a>
+        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://marionettejs.github.io/2016/08/23/marionette-v3/"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <span class="hidden">Facebook</span>
+        </a>
+        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://marionettejs.github.io/2016/08/23/marionette-v3/"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <span class="hidden">Google+</span>
+        </a>
+      </section>
+    </footer>
+  </article>
+</main>
+
+
+  
+<footer class="site-footer">
+  
+  <a class="subscribe icon-feed" href="../../../../atom.xml"><span class="tooltip">Subscribe!</span></a>
+  
+  <div class="inner">
+     <p>Made with
+       <span class="heart-icon">&hearts;</span>by&nbsp;
+       <a href="https://github.com/marionettejs/marionettejs.com/graphs/contributors" target="_blank">all of us</a>
+     </p>
+  </div>
+</footer>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="../../../../js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="../../../../js/index.js"></script>
+
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-52727533-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'marionette';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+</body>
+</html>
