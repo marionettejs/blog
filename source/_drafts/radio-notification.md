@@ -26,7 +26,7 @@ notification system, I like to use the Command pattern which, in Radio, is just
 |----------|-------------------|-----------|
 | `notify` |   `show:success`  | `message` |
 | `notify` |    `show:error`   | `message` |
-| `notify` |       `clear`     |           |
+| `notify` |       `clear`     |     -     |
 
 This simple definition lets us do:
 
