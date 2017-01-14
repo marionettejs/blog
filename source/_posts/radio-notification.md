@@ -3,8 +3,9 @@ tags:
   - tutorials (intermediate)
   - learning
   - by Scott Walton
-date: 2016-12-28 17:00:00
+date: 2017-01-14 13:45:00
 ---
+
 
 This post is a simple tutorial showing how I implement a global notification
 system (also called alerts) using Marionette's [`Radio`][radio] and [`Region`][region]
