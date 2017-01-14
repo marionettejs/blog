@@ -1,6 +1,7 @@
 title: Using Radio to show Notifications
 tags:
   - tutorials (intermediate)
+  - learning
   - by Scott Walton
 date: 2016-12-28 17:00:00
 ---
@@ -42,9 +43,9 @@ This should show a success notification with the above text included. The
 
 ## Building the Notification System
 
-For this system, we will manage the notifications from a custom `Region`. We use
-`Region` here as it extends from `Object`, which is already directly integrated
-into Radio and will set up your listeners for you.
+For this system, we will manage the notifications from a custom [`Region`][region].
+We use [`Region`][region] here as it extends from [`Object`][object], which is
+already directly [integrated into Radio][radio] and will set up your listeners for you.
 
 ```js
 import {Region} from 'backbone.marionette';
@@ -259,6 +260,11 @@ Some potential improvements to try out yourself:
 * Use a [`Behavior`][behavior] to make it easy for multiple views to respond to form saving
 * Use a `Collection` and [`CollectionView`](collectionview) to show multiple notifications at once
 
+## See Also
+
+Most of the outline code from this post was taken from an  app I wrote for
+tracking workouts. You can find a working version of this on [Github][workout].
+
 ## Get in Touch!
 
 As always, if you have any questions, pop in on [Gitter][gitter] and we'll be
@@ -266,5 +272,7 @@ happy to help!
 
 [behavior]: http://marionettejs.com/docs/v3.1.0/marionette.behavior.html
 [collectionview]: http://marionettejs.com/docs/v3.1.0/marionette.collectionview.html
+[object]: http://marionettejs.com/docs/v3.1.0/marionette.object.html
 [radio]: http://marionettejs.com/docs/v3.1.0/backbone.radio.html
 [region]: http://marionettejs.com/docs/v3.1.0/marionette.region.html
+[workout]: https://github.com/scott-w/reps-js/tree/master/app
